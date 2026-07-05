@@ -16,11 +16,76 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Update README with recent GitHub activity
-        uses: jamesgeorge007/github-activity-readme@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build recent-activity section
+        uses: actions/github-script@v7
         with:
-          USERNAME: MichaelPGifford
-          COMMIT_MSG: "chore: refresh recent activity"
-          MAX_LINES: 10
+          script: |
+            const fs = require('fs');
+            const username = 'MichaelPGifford';
+            const events = await github.paginate(
+              github.rest.activity.listPublicEventsForUser,
+              { username, per_page: 100 }
+            );
+
+            const clip = (s, n = 72) => {
+              s = (s || '').split('\n')[0].replace(/`/g, "'").trim();
+              return s.length > n ? s.slice(0, n - 1) + '…' : s;
+            };
+
+            const lines = [];
+            for (const e of events) {
+              if (lines.length >= 12) break;
+              const repo = e.repo.name;                       // owner/name
+              if (!repo.startsWith(username + '/')) continue;  // only my projects
+              const url = `https://github.com/${repo}`;
+              const when = e.created_at.slice(0, 10);
+              let text = null;
+              switch (e.type) {
+                case 'PushEvent': {
+                  const commits = e.payload.commits || [];
+                  const n = e.payload.size || commits.length || 1;
+                  const msg = commits.length ? clip(commits[commits.length - 1].message) : '';
+                  text = `\`${when}\` 📦 Pushed ${n} commit${n === 1 ? '' : 's'} to [\`${repo}\`](${url})` + (msg ? ` — ${msg}` : '');
+                  break;
+                }
+                case 'CreateEvent':
+                  text = `\`${when}\` 🌱 Created ${e.payload.ref_type} in [\`${repo}\`](${url})`;
+                  break;
+                case 'ReleaseEvent':
+                  text = `\`${when}\` 🚀 Released \`${e.payload.release.tag_name}\` of [\`${repo}\`](${url})`;
+                  break;
+                case 'PullRequestEvent':
+                  text = `\`${when}\` 🔀 ${e.payload.action} PR #${e.payload.number} in [\`${repo}\`](${url})`;
+                  break;
+                case 'IssuesEvent':
+                  text = `\`${when}\` ❗ ${e.payload.action} issue #${e.payload.issue.number} in [\`${repo}\`](${url})`;
+                  break;
+                default:
+                  continue;
+              }
+              lines.push('- ' + text);
+            }
+
+            const body = lines.length
+              ? lines.join('\n')
+              : '_No recent public activity._';
+
+            const readme = fs.readFileSync('README.md', 'utf8');
+            const start = '<!--START_SECTION:activity-->';
+            const end = '<!--END_SECTION:activity-->';
+            const re = new RegExp(`${start}[\\s\\S]*?${end}`);
+            const updated = readme.replace(re, `${start}\n${body}\n${end}`);
+            fs.writeFileSync('README.md', updated);
+
+      - name: Commit if changed
+        run: |
+          if [[ -n "$(git status --porcelain README.md)" ]]; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add README.md
+            git commit -m "chore: refresh recent activity"
+            git push
+          else
+            echo "No activity changes."
+          fi
