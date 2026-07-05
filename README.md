@@ -90,8 +90,8 @@ your notecards in real time.
 - **guidedhunts.io** — Founder &amp; Lead Engineer *(2026–present)* — architected and
   deployed a programmatic aggregator; built extraction pipelines across 9,200+ sites.
 - **USCC, LLC** — Founder &amp; Lead Developer *(2020–present)* — production full-stack
-  e-commerce (Node.js/JS/SQL) driving **$100k+ annual revenue**; third-party API and
-  payment-gateway integrations with 99.9% uptime.
+  e-commerce (Node.js/JS/SQL) driving **$400K+ in lifetime revenue**; third-party API
+  and payment-gateway integrations with 99.9% uptime.
 - **Takl** — Technical Support Intern — end-to-end ticket lifecycle in Zendesk;
   replicated database/integration bugs in staging for DevOps hotfixes.
 - **Transformation Media** — Web Dev Intern — interactive JS layout tool; production
