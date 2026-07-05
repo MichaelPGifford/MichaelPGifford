@@ -1,59 +1,110 @@
-# Michael Gifford
+<h1 align="center">Michael Gifford</h1>
 
-Full-stack engineer building production web platforms and data pipelines —
-TypeScript/React/Next.js on the front, Python/FastAPI and LLM-backed data
-extraction on the back.
+<p align="center">
+  <b>Full-Stack &amp; Product Engineer</b> · Nashville, TN · Remote<br>
+  I ship revenue-generating web platforms and the data pipelines that feed them —
+  Next.js/React on the front, Python/FastAPI and LLM-backed extraction on the back.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white" alt="TypeScript">
+  <img src="https://img.shields.io/badge/Next.js-000000?style=flat&logo=nextdotjs&logoColor=white" alt="Next.js">
+  <img src="https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB" alt="React">
+  <img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white" alt="Node.js">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white" alt="FastAPI">
+  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white" alt="PostgreSQL">
+  <img src="https://img.shields.io/badge/GCP-4285F4?style=flat&logo=googlecloud&logoColor=white" alt="GCP">
+</p>
+
+---
+
+Versatile full-stack engineer with a track record of **architecting
+revenue-generating platforms**, owning complex data structures, and running
+end-to-end system lifecycles. I lean hard on modern AI-assisted engineering
+(Cursor, Claude, the OpenAI API) to ship high-quality code fast — from
+high-volume ingestion pipelines to server-rendered, SEO-first public sites.
 
 > **A note on what's public here.** My current commercial platform and the
-> proprietary data pipeline behind it are maintained in **private repositories**
-> for commercial-confidentiality and IP reasons. The public repositories below
-> are the genuine pieces I can share — earlier projects, a 1st-place hackathon
-> build, reusable tooling, and libraries genericized from real production
-> patterns. Happy to walk through the private work in depth in an interview.
+> proprietary pipeline behind it live in **private repositories** for
+> confidentiality and IP reasons. The public repos below are the genuine pieces
+> I can share — recent tooling, a full financial-data platform, reusable
+> libraries genericized from production patterns, and a 1st-place hackathon
+> build. Happy to walk through the private work in an interview.
 
-## What I work on
+## What I focus on
 
 - **Full-stack product engineering** — Next.js (App Router, RSC, TypeScript)
-  frontends backed by FastAPI / async Python services.
-- **Data pipelines** — scraping, normalization, and LLM-based structured
-  extraction with deterministic, cache-first, retry-resilient designs.
-- **SEO-first public sites** — server-rendered, structured-data-rich pages built
-  to scale to thousands of crawlable URLs.
+  frontends backed by Node.js and async Python / FastAPI services.
+- **Data pipelines at scale** — scraping, normalization, and LLM-based
+  structured extraction with deterministic, cache-first, retry-resilient designs
+  (built one processing **9,200+ target sites** in concurrent batches).
+- **SEO-first public sites** — server-rendered, structured-data-rich pages
+  designed to scale to thousands of crawlable URLs.
 
-## Selected public repositories
+## Featured projects
 
-### [`wywaste`](https://github.com/MichaelPGifford/wywaste)
-**1st-place hackathon project for the City of Knoxville** (team of three). A
-sensor-equipped garbage truck (Raspberry Pi + Arduino) reports GPS position and
-logs missed pickups with a photo; residents see why their collection was skipped
-on a live map. I built the **Node/Express + MongoDB backend and the
-device-to-cloud image pipeline**, plus the map frontend. Credits and scope in the
-README.
+### 🎯 guidedhunts.io — *Founder &amp; Lead Engineer* (private)
+A programmatic aggregator platform (Next.js + Python) that ingests and structures
+the entire U.S. hunting-outfitter market — packages, pricing, photos, and
+reviews. High-volume extraction pipelines (Firecrawl + DataForSEO) run
+cost-controlled annual refreshes across 9,200+ sites. Core platform is private;
+the tool below is a public artifact from that work.
 
-### [`RealEstateToken`](https://github.com/MichaelPGifford/RealEstateToken)
-A proof-of-concept for **tokenizing real estate on Ethereum** — each property is
-minted as its own ERC-20 token that can be traded. Go backend with `go-ethereum`,
-a Solidity token contract, wallet/transfer handling, and a Bing Maps property
-browser. (Solo, 2018–19.)
+### [`serp-gap-analyzer`](https://github.com/MichaelPGifford/serp-gap-analyzer) · JavaScript
+Mechanical SERP gap analysis for the platform's target keywords: it queries
+SerpApi, **classifies who actually ranks** (directory / operator / content),
+infers search intent, and emits a static, `noindex` report you can act on. Ships
+with an offline demo — no key, no database. Brand-matched static site generator.
 
-### [`simple-blockchain`](https://github.com/MichaelPGifford/simple-blockchain)
-A blockchain built from scratch in Go (SHA-256 hash-linked blocks) — the
-deliberate "learn the primitives first" precursor I used to decide *against*
-rolling my own chain and *for* building `RealEstateToken` on Ethereum.
+### [`AIStocks`](https://github.com/MichaelPGifford/AIStocks) · Python
+A full-stack **SEC fundamentals research platform** (FastAPI + Next.js +
+Postgres). Point-in-time XBRL pipeline that fetches, parses, and structures raw
+10-K/10-Q filings from the SEC EDGAR API, then charts multi-year revenue, gross
+margins, and debt-to-equity — with honestly-reported strategy backtests.
 
-### [`data-helpers`](https://github.com/MichaelPGifford/data-helpers)
+### [`nextjs-fastapi-template`](https://github.com/MichaelPGifford/nextjs-fastapi-template) · TypeScript
+The full-stack monorepo starter I reach for: Next.js + FastAPI, a typed API
+boundary, single-origin dev proxy, layered backend, and CI for both sides.
+
+### [`data-helpers`](https://github.com/MichaelPGifford/data-helpers) · TypeScript
 Dependency-free TypeScript helpers for cleaning messy data feeds — date
 normalization, null/empty pruning, structured logging, resilient async retries.
 Genericized from real ingestion work. Fully tested (`vitest`), typed, tree-shakeable.
 
-### [`nextjs-fastapi-template`](https://github.com/MichaelPGifford/nextjs-fastapi-template)
-The full-stack monorepo starter I reach for: Next.js + FastAPI, typed API
-boundary, single-origin dev proxy, layered backend, CI for both sides.
+### [`wywaste`](https://github.com/MichaelPGifford/wywaste) · 🥇 1st-place hackathon
+Smart-city project for the City of Knoxville (team of three). A sensor-equipped
+truck (Raspberry Pi + Arduino) reports GPS and logs missed pickups; residents see
+why collection was skipped on a live map. I built the **Node/Express + MongoDB
+backend and the device-to-cloud pipeline**, plus the map frontend.
 
-### [`Smartslides`](https://github.com/MichaelPGifford/Smartslides)
-A presentation tool whose slides **follow your voice** — browser mic audio is
-streamed over Socket.io into Google Cloud Speech-to-Text, and the transcript
-auto-advances your notecards in real time. (Solo, 2019.)
+### [`Smartslides`](https://github.com/MichaelPGifford/Smartslides) · CSS/JS
+A presentation tool whose slides **follow your voice** — browser mic audio streams
+over Socket.io into Google Cloud Speech-to-Text, and the transcript auto-advances
+your notecards in real time.
+
+<sub>More on my profile: <a href="https://github.com/MichaelPGifford/RealEstateToken"><code>RealEstateToken</code></a> and <a href="https://github.com/MichaelPGifford/simple-blockchain"><code>simple-blockchain</code></a> (Go/Ethereum experiments), <a href="https://github.com/MichaelPGifford?tab=repositories">and more →</a></sub>
+
+## Experience
+
+- **guidedhunts.io** — Founder &amp; Lead Engineer *(2026–present)* — architected and
+  deployed a programmatic aggregator; built extraction pipelines across 9,200+ sites.
+- **USCC, LLC** — Founder &amp; Lead Developer *(2020–present)* — production full-stack
+  e-commerce (Node.js/JS/SQL) driving **$100k+ annual revenue**; third-party API and
+  payment-gateway integrations with 99.9% uptime.
+- **Takl** — Technical Support Intern — end-to-end ticket lifecycle in Zendesk;
+  replicated database/integration bugs in staging for DevOps hotfixes.
+- **Transformation Media** — Web Dev Intern — interactive JS layout tool; production
+  Stripe / Square / PayPal payment integrations.
+
+## Tech stack
+
+**Languages** JavaScript · TypeScript · Python · PHP · C++ · SQL
+**Frontend** Next.js · React · Tailwind CSS · HTML5 · CSS3
+**Backend** Node.js · FastAPI · REST · Webhooks · PostgreSQL · MySQL
+**Data &amp; APIs** Firecrawl · DataForSEO · SerpApi · SEC EDGAR · Google APIs · Stripe · Square
+**AI-assisted** Cursor · Claude · OpenAI API · prompt engineering
+**Infra &amp; tooling** Git · GitHub · Google Cloud Platform · Postman · automated cron jobs
 
 ## How I build
 
@@ -63,7 +114,24 @@ auto-advances your notecards in real time. (Solo, 2019.)
   single bad record take down a batch, fail fast on real bugs.
 - Designed for scale from day one, not retrofitted onto sparse data.
 
+## 📈 Recent activity
+
+<!--START_SECTION:activity-->
+<!--END_SECTION:activity-->
+
+## 📊 GitHub at a glance
+
+<p align="center">
+  <img height="165" src="https://github-readme-stats.vercel.app/api?username=MichaelPGifford&show_icons=true&hide_border=true&count_private=true&include_all_commits=true&theme=vue" alt="GitHub stats">
+  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=MichaelPGifford&layout=compact&hide_border=true&langs_count=8&theme=vue" alt="Top languages">
+</p>
+
+## Education
+
+**B.S. in Computer Science** — University of Tennessee, Knoxville
+
 ## Contact
 
+- Email: [mikeygifford@gmail.com](mailto:mikeygifford@gmail.com)
+- LinkedIn: [linkedin.com/in/michgif](https://linkedin.com/in/michgif)
 - GitHub: [@MichaelPGifford](https://github.com/MichaelPGifford)
-- Email: mikey.gifford@gmail.com
